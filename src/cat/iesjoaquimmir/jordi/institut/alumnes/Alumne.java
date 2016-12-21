@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cat.iesjoaquimmir.geoapp.model.businesslayer.alumnes;
+package cat.iesjoaquimmir.jordi.institut.alumnes;
 import java.util.ArrayList;
 /**
  *
@@ -16,7 +16,7 @@ public class Alumne {
     private String primercognom;
     private String segoncognom;
     private String dni;
-    private ArrayList<String> telefon;
+    private ArrayList<String> telefon = null;
     private int edat;
     private int i = 0;
     private Domicili domicili;
@@ -92,7 +92,7 @@ public class Alumne {
             return telefon;
         }
         public void setTelefon(ArrayList<String> telefon){
-            if(telefon.get(i).length() < 9){
+            if(telefon == null){
                 throw new IllegalArgumentException(String.format("El telefon no pot tenir menys de 9 numeros."));
             }
             this.telefon = telefon;
@@ -140,6 +140,11 @@ public class Alumne {
             this.setModul(modul);
             
         }
+        //Sense Telefon y Moduls
+        public Alumne(String nom, String primercognom, String segoncognom, String dni, int edat, Domicili domicili){
+            this(nom, primercognom, segoncognom, dni, edat, new ArrayList<String>(), domicili, new ArrayList<Moduls>());    
+        }
+        
         
         //Sense DNI
         public Alumne(String nom, String primercognom, String segoncognom, int edat, ArrayList<String> telefon, Domicili domicili, ArrayList<Moduls> modul){
@@ -194,7 +199,27 @@ public class Alumne {
             this(nom, DefEdat, dni);
         }*/
     //</editor-fold>
+    //<editor-fold defaultstate="collapsed" desc="Metodes Estatics">
+        public boolean potAfegirTelefon(String telf){
+            if(this.getTelefon().size()<=3){
+                return true;
+            }
+            return false;
+        }
+        
+        public void agafaTelefon(String telf){
+           try{
+            if(potAfegirTelefon(telf)){
+                this.telefon.add(telf);
+                System.out.printf("%nTelefon %s afegit!%n", telf);
+            }
+           }catch(Exception t){
+               System.err.printf("%n No es pot afegir el telefon %s%n", telf);
+           }
+        }
+    //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Metodes D'objectes">
+        
         public String getSalutacio(){
             return String.format("Hola, sóc en/la %s amb la identificació %s i tinc %d anys", getNom(), getDNI(), getEdat());
         }

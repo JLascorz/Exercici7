@@ -1,6 +1,6 @@
 
 
-package cat.iesjoaquimmir.geoapp.model.businesslayer.alumnes;
+package cat.iesjoaquimmir.jordi.institut.alumnes;
 
 public class Domicili {
     
@@ -31,7 +31,7 @@ public class Domicili {
             return numero;
         }
         public void setNumero(int numero){
-            if(numero <= 0){
+            if(numero == 0){
                 throw new IllegalArgumentException(String.format("El numero no pot ser 0 o menor."));
             }
             this.numero = numero;
@@ -51,7 +51,7 @@ public class Domicili {
             return codipostal;
         }
         public void setCodiPostal(String codipostal){
-            if(codipostal.length() < 5){
+            if(codipostal.length() == 0){
                 throw new IllegalArgumentException(String.format("El codi postal no pot tenir menys de 5 numeros."));
             }
             this.codipostal = codipostal;

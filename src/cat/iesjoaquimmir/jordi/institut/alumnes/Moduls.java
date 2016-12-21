@@ -1,6 +1,6 @@
 
 
-package cat.iesjoaquimmir.geoapp.model.businesslayer.alumnes;
+package cat.iesjoaquimmir.jordi.institut.alumnes;
 import java.util.ArrayList;
 
 public class Moduls {

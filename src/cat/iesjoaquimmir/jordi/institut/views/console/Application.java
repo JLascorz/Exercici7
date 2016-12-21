@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cat.iesjoaquimmir.geoapp.views.console;
+package cat.iesjoaquimmir.jordi.institut.views.console;
 import java.util.ArrayList;
-import cat.iesjoaquimmir.geoapp.model.businesslayer.alumnes.Alumne;
-import cat.iesjoaquimmir.geoapp.model.businesslayer.alumnes.Domicili;
-import cat.iesjoaquimmir.geoapp.model.businesslayer.alumnes.Moduls;
+import cat.iesjoaquimmir.jordi.institut.alumnes.Alumne;
+import cat.iesjoaquimmir.jordi.institut.alumnes.Domicili;
+import cat.iesjoaquimmir.jordi.institut.alumnes.Moduls;
 import java.util.Scanner;
 /**
  *
@@ -195,7 +195,7 @@ public class Application {
        
        //Preguntes
        System.out.printf("Nom del alumne: ");
-       nom = input.next();
+       nom = input.nextLine();
        System.out.printf("Primer cognom del alumne: ");
        primercognom = input.next();
        System.out.printf("Segon cognom del alumne: ");
